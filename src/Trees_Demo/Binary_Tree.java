@@ -1,5 +1,7 @@
 package Trees_Demo;
 
+import java.util.Stack;
+
 public class Binary_Tree
 {
     private TreeNode root;
@@ -43,6 +45,7 @@ public class Binary_Tree
     }
     public void preOrder(TreeNode root)
     {
+        //Recursion
         if(root==null)
         {
             return;
@@ -51,5 +54,69 @@ public class Binary_Tree
         preOrder(root.left);
         preOrder(root.right);
     }
+    public  void preOrderTraverse()
+    {
+        //Iteration
+        if(root==null)//Exception check for tree traversal
+        {
+            return;
+        }
+        Stack<TreeNode> stack=new Stack<>();
+        stack.push(root);
+        while(!stack.isEmpty())
+        {
+            TreeNode temp=stack.pop();
+            System.out.print(temp.data+" ");
+            if(temp.right!=null)
+            {
+                stack.push(temp.right);//i push the nodes right child push into the stack
+            }
+            if(temp.left!=null)
+            {
+                stack.push(temp.left); //Output -> 1,2,4,5,3,6,7
+            }
+
+        }
+    }
+    //recursive
+    public void inOrder(TreeNode root)
+    {
+        if(root==null)
+        {
+            return;
+        }
+        inOrder(root.left);
+        System.out.print(root.data+" ");
+        inOrder(root.right);
+
+    }
+
+    //iteration
+    public void iterativeInorder()
+    {
+        if(root==null)
+        {
+            return;
+        }
+        Stack<TreeNode> stack=new Stack<>();
+        TreeNode temp=root;
+        while(!stack.isEmpty()||temp!=null)
+        {
+            if(temp!=null)
+            {
+                stack.push(temp);
+                temp=temp.left;
+            }
+            else
+            {
+                temp=stack.pop();
+                System.out.print(temp.data+" ");
+                temp=temp.right;
+
+            }
+        }
+    }
+
+
 
 }
