@@ -19,8 +19,11 @@ public class SearchAnElement
         obj.insert(2,7);
         obj.insert(3,10);
         obj.display();
+        System.out.println("Recusion");
         System.out.println(obj.search(7));
         System.out.println(obj.search(9));
+        System.out.println("Iteration");
+        System.out.println(obj.getSearch());
 
     }
     public void insert(int position,int data)
@@ -55,6 +58,7 @@ public class SearchAnElement
         }
         System.out.print("null");
     }
+    //Iterative
     public int search(int x)
     {
         ListNode current=head;
@@ -80,5 +84,27 @@ public class SearchAnElement
             return -1;
         }
 
+    }
+    //Recursive
+    public int getSearchEle(ListNode current,int ele)
+    {
+        if(current==null)
+        {
+            return -1;
+        }
+
+        if(current.data==ele)
+        {
+            System.out.println();
+            System.out.println("Element is found");
+            return current.data;
+        }
+        else {
+             return getSearchEle(current.next, ele);
+        }
+    }
+    public int getSearch()
+    {
+        return getSearchEle(head,50);
     }
 }
