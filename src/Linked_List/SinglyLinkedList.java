@@ -88,7 +88,11 @@ public class SinglyLinkedList
         sll.removeDuplicates();
         sll.display();
         */
+
         sll.InsertInSortedList(11);
+        sll.display();
+        System.out.println();
+        sll.removeDuplicates();
         sll.display();
 
 
