@@ -34,7 +34,6 @@ public class DoublyLinkedListDemo
         dll.insertFirst(1);
         dll.insertFirst(10);
         dll.insertEnd(5);
-        dll.insertEnd(6);
         dll.displayBackward();
         dll.displayForward();
     }
@@ -42,7 +41,6 @@ public class DoublyLinkedListDemo
         public void insertFirst(int value)
         {
             ListNode newNode=new ListNode(value);
-
                 if(isEmpty())
                 {
                     tail=newNode;
@@ -75,7 +73,7 @@ public class DoublyLinkedListDemo
 
     }
 
-    //how to print elemnts
+    //how to print elements
     public void displayForward()
     {
         if(head==null)
